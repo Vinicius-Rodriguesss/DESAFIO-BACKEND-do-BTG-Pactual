@@ -1,0 +1,20 @@
+services:
+
+  ## AQUI ESTOU INICIALIZADO MEU BANCO DE DADOS MONGODB
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=123
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    ports:
+      ## A PORTA QUE O PAINEL DO RABBITMQ VAI ESTA ROODANDO
+      - 15672:15672
+      ## A PORTA QUE A MINHA APLICAÇÃO RABBITMQ VAI ESTA RODANDO
+      - 5672:5672
+
+
